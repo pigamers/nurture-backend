@@ -12,6 +12,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Health check route
+app.get('/', (req, res) => {
+  res.json({ message: 'Nurture Health API is running!' });
+});
+
+app.get('/api', (req, res) => {
+  res.json({ message: 'API is working!' });
+});
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/health', healthRoutes);
